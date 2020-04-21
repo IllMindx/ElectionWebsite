@@ -1,0 +1,11 @@
+{% extends 'main/header.html' %}
+
+{% block content %}
+	<h4>Your vote has been committed.</h4>
+	
+	{% if request.user.is_admin %}
+		{% include 'main/includes/return_button.html' %}
+	{% endif %}
+
+	{% include 'main/includes/logout_button.html' %}
+{% endblock %}

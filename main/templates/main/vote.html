@@ -1,0 +1,28 @@
+{% extends 'main/header.html' %}
+
+{% block content %}
+	<h3>Candidate picture:</h3>
+	
+	{% load static %}
+	<script src="{% static 'main/js/change_img.js' %}" type="text/javascript"></script>
+
+	<img id="candidate_img" src="{% static 'main/img/unknown.jpg' %}" />
+
+	<form method="POST">
+		{% csrf_token %}
+		
+		<div class="form-group">
+			{{ vote_form }}
+		</div>
+		{% if incorrect_number %}
+			<p style="color:red;">There is no candidate with this number!</p>
+		{% endif%}
+		<input class="btn btn-primary" type="submit" value="Commit Vote"> 
+	</form>
+
+	{% if request.user.is_admin %}
+		{% include 'main/includes/return_button.html' %}
+	{% endif %}
+
+	{% include 'main/includes/logout_button.html' %}
+{% endblock %}

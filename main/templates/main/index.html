@@ -1,0 +1,19 @@
+{% extends 'main/header.html' %}
+
+{% block content %}
+	<div class="form-group">
+		<form action="vote">
+			<input class="btn btn-primary" type="submit" value="Vote"/>
+		</form>
+		
+		<form action="result">
+			<input class="btn btn-primary" type="submit" value="Result"/>
+		</form>
+		
+		<form action="register">
+			<input class="btn btn-primary" type="submit" value="Register"/>
+		</form>
+		
+		{% include 'main/includes/logout_button.html' %}
+	</div>
+{% endblock %}

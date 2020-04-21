@@ -1,0 +1,23 @@
+{% extends 'main/header.html' %}
+
+{% block content %}
+	<form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            {% for field in user_form %}
+                {{ field.label_tag }}
+                {{ field }}
+
+                {% if field.help_text %}
+                    <small>{{ field.help_text }}</small>
+                {% endif %}
+                
+                {% for error  in field.errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            {% endfor %}
+        </div>
+        <input class="btn btn-primary" type="submit" value="Register" /> 
+    </form>
+    {% include 'main/includes/return_button.html' %}
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'main/header.html' %}
+
+{% block content %}
+    <table class="table">
+        <tr>
+            <th>Candidate</th>
+            <th>Total votes</th>
+        </tr>
+        {% for candidate in total_votes %}
+            <tr>
+                <td>{{ candidate.0 }}</td>
+                <td>{{ candidate.1 }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% include 'main/includes/return_button.html' %}
+{% endblock %}
